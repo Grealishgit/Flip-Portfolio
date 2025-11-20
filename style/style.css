@@ -12,13 +12,13 @@
 
 :root {
     --bg-color: #081b29;
-    --main-color: #ea5f30;
+    --main-color: #009966;
     --text-color: #333;
     --second-text-color: #555;
     --white-color: #fff;
-    --cover-color: linear-gradient(45deg, #972f0d, #ea5f30);
+    --cover-color: linear-gradient(45deg, #034630, #009966);
     --pages-color: linear-gradient(90deg, #fff, #eeeeee);
-    --border: 0.125rem solid #ea5f30;
+    --border: 0.125rem solid #009966;
     --box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.2);
 }
 
@@ -36,7 +36,7 @@ body {
     position: relative;
     width: 66rem;
     height: 45rem;
-    padding: 2rem;
+    padding: 1.2rem;
     perspective: 250rem;
     animation: show-animate 2s forwards;
 }
@@ -133,7 +133,7 @@ body {
 
 .profile-page h3 {
     font-size: 1.3rem;
-    color: #ea5f30;
+    color: #009966;
 }
 
 .profile-page .social-media {
@@ -150,7 +150,7 @@ body {
     border: var(--border);
     border-radius: 50%;
     font-size: 1.3rem;
-    color: #ea5f30;
+    color: #009966;
     margin: 0.2rem;
     transition: 0.5s;
 }
@@ -174,7 +174,7 @@ body {
     height: 3rem;
     justify-content: center;
     align-items: center;
-    background: #ea5f30;
+    background: #009966;
     border: var(--border);
     border-radius: 0.3rem;
     font-size: 0.9rem;
