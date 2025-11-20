@@ -91,6 +91,51 @@ if (openPortfolioBtn) {
 }
 
 const pages = document.querySelectorAll(".book-page.page-right");
+
+// Add click event for "Close Portfolio" button
+const closePortfolioBtn = document.querySelector(".btn.close-portfolio");
+
+if (closePortfolioBtn) {
+    closePortfolioBtn.onclick = (e) => {
+        e.stopPropagation(); // Prevent triggering the cover click
+
+        // Close all pages in reverse order
+        pages.forEach((page, index) => {
+            if (page.classList.contains("turn")) {
+                setTimeout(() => {
+                    page.classList.remove("turn");
+                    setTimeout(() => {
+                        page.style.zIndex = 20 - index;
+                    }, 500);
+                }, index * 200);
+            }
+        });
+
+        // Close the first page (page-left)
+        setTimeout(() => {
+            if (pageLeft.classList.contains('turn')) {
+                pageLeft.classList.remove('turn');
+                setTimeout(() => {
+                    pageLeft.style.zIndex = 20;
+                }, 500);
+            }
+        }, pages.length * 200);
+
+        // Close the right cover
+        setTimeout(() => {
+            if (coverRight.classList.contains("turn")) {
+                coverRight.classList.remove("turn");
+                setTimeout(() => {
+                    coverRight.style.zIndex = 0;
+                }, 500);
+            }
+        }, (pages.length + 1) * 200);
+
+        // Keep the left cover open to show welcome message
+        // The left cover should already be flipped open from the initial animation
+    };
+}
+
 const contactMeBtn = document.querySelector(".btn.contact-me");
 
 contactMeBtn.onclick = () => {
