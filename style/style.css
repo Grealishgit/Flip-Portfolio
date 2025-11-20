@@ -190,7 +190,7 @@ body {
     }
     
 .book-page.page-left.turn {
-    transform: rotateY(-180deg);
+    transform: rotateY(180deg);
 }
 
 .book-page.page-left .page-front,
