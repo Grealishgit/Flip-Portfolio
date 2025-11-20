@@ -278,6 +278,7 @@ body {
 
 .nextprev-btn {
     position: absolute;
+    cursor: pointer;
     bottom: 0.9rem;
     right: 1.5rem;
     width: 2rem;
