@@ -19,6 +19,28 @@ pageTurnBtn.forEach((el, index) => {
     };
 });
 
+// Add click event for left cover
+const coverLeft = document.querySelector(".cover.cover-left");
+
+coverLeft.onclick = () => {
+    if (coverLeft.classList.contains("turn")) {
+        coverLeft.classList.remove("turn");
+    } else {
+        coverLeft.classList.add("turn");
+    }
+};
+
+// Add click event for left page
+const pageLeft = document.querySelector(".book-page.page-left");
+
+pageLeft.onclick = () => {
+    if (pageLeft.classList.contains("turn")) {
+        pageLeft.classList.remove("turn");
+    } else {
+        pageLeft.classList.add("turn");
+    }
+};
+
 const pages = document.querySelectorAll(".book-page.page-right");
 const contactMeBtn = document.querySelector(".btn.contact-me");
 
@@ -61,7 +83,6 @@ function reverseIndex() {
 }
 
 const coverRight = document.querySelector(".cover.cover-right");
-const pageLeft = document.querySelector(".book-page.page-left");
 
 setTimeout(() => {
     coverRight.classList.add("turn");
