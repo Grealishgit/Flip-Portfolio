@@ -1,9 +1,20 @@
 const pageLeft = document.querySelector(".book-page.page-left");
 const coverRight = document.querySelector(".cover.cover-right");
+const coverLeft = document.querySelector(".cover.cover-left");
 
 // Add loaded class to wrapper after page loads to enable transitions
 window.addEventListener('load', () => {
     document.querySelector('.wrapper').classList.add('loaded');
+
+    // Flip the left cover on load
+    setTimeout(() => {
+        if (coverLeft && !coverLeft.classList.contains('turn')) {
+            coverLeft.classList.add('turn');
+            setTimeout(() => {
+                coverLeft.style.zIndex = 100;
+            }, 500);
+        }
+    }, 2100);
 
     // Delay the first page flip so its back side only shows after load
     setTimeout(() => {
@@ -38,15 +49,46 @@ pageTurnBtn.forEach((el, index) => {
 });
 
 // Add click event for left cover
-const coverLeft = document.querySelector(".cover.cover-left");
-
 coverLeft.onclick = () => {
     if (coverLeft.classList.contains("turn")) {
         coverLeft.classList.remove("turn");
+        setTimeout(() => {
+            coverLeft.style.zIndex = -1;
+        }, 500);
     } else {
         coverLeft.classList.add("turn");
+        setTimeout(() => {
+            coverLeft.style.zIndex = 100;
+        }, 500);
     }
 };
+
+// Add click event for "Open Portfolio" button
+const openPortfolioBtn = document.querySelector(".btn.open-portfolio");
+
+if (openPortfolioBtn) {
+    openPortfolioBtn.onclick = (e) => {
+        e.stopPropagation(); // Prevent triggering the cover click
+
+        // Flip the left cover back to show the front
+        if (coverLeft.classList.contains("turn")) {
+            coverLeft.classList.remove("turn");
+            setTimeout(() => {
+                coverLeft.style.zIndex = -1;
+            }, 500);
+        }
+
+        // Then flip the first page to show About Me
+        setTimeout(() => {
+            if (!pageLeft.classList.contains('turn')) {
+                pageLeft.classList.add('turn');
+                setTimeout(() => {
+                    pageLeft.style.zIndex = 20;
+                }, 500);
+            }
+        }, 600);
+    };
+}
 
 const pages = document.querySelectorAll(".book-page.page-right");
 const contactMeBtn = document.querySelector(".btn.contact-me");
