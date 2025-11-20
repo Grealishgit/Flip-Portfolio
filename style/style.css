@@ -185,18 +185,38 @@ body {
     transform-origin: right;
     transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
     box-shadow: -0.6rem 0.6rem 0.6rem rgba(0, 0, 0, 0.1);
-    cursor: pointer;
+    padding: 1.5rem 2rem;
+    z-index: 20;
     }
     
-    .book-page.page-left.turn {
-        transform: rotateY(-180deg);
+.book-page.page-left.turn {
+    transform: rotateY(-180deg);
 }
 
+.book-page.page-left .page-front,
+.book-page.page-left .page-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--pages-color);
+    padding: 1.5rem 2rem;
+}
+
+.book-page.page-left .page-front {
+    transform: rotateY(0deg) translateZ(1px);
+}
+
+.book-page.page-left .page-back {
+    transform: rotateY(180deg) translateZ(1px);
+}
 .profile-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    backface-visibility: hidden;
 }
 
 .profile-page .profile-img {

@@ -30,17 +30,6 @@ coverLeft.onclick = () => {
     }
 };
 
-// Add click event for left page
-const pageLeft = document.querySelector(".book-page.page-left");
-
-pageLeft.onclick = () => {
-    if (pageLeft.classList.contains("turn")) {
-        pageLeft.classList.remove("turn");
-    } else {
-        pageLeft.classList.add("turn");
-    }
-};
-
 const pages = document.querySelectorAll(".book-page.page-right");
 const contactMeBtn = document.querySelector(".btn.contact-me");
 
@@ -83,6 +72,10 @@ function reverseIndex() {
 }
 
 const coverRight = document.querySelector(".cover.cover-right");
+const pageLeft = document.querySelector(".book-page.page-left");
+
+// Set initial z-index for page-left
+pageLeft.style.zIndex = 20;
 
 setTimeout(() => {
     coverRight.classList.add("turn");
@@ -91,10 +84,6 @@ setTimeout(() => {
 setTimeout(() => {
     coverRight.style.zIndex = -1;
 }, 2800);
-
-setTimeout(() => {
-    pageLeft.style.zIndex = 20;
-}, 3200);
 
 pages.forEach((_, index) => {
     setTimeout(() => {
