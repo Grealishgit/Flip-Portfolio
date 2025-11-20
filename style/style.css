@@ -248,6 +248,15 @@ body {
     transform: rotateY(180deg);
 }
 
+/* Initial state without transition to prevent flash */
+/* .wrapper .book-page.page-left.turn {
+    transition: none;
+} */
+
+/* Re-enable transition after page load */
+/* .wrapper.loaded .book-page.page-left {
+    transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+} */
 .book-page.page-left .page-front,
 .book-page.page-left .page-back {
     position: absolute;

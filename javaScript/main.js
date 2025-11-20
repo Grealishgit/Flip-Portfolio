@@ -1,3 +1,21 @@
+const pageLeft = document.querySelector(".book-page.page-left");
+const coverRight = document.querySelector(".cover.cover-right");
+
+// Add loaded class to wrapper after page loads to enable transitions
+window.addEventListener('load', () => {
+    document.querySelector('.wrapper').classList.add('loaded');
+
+    // Delay the first page flip so its back side only shows after load
+    setTimeout(() => {
+        if (pageLeft && !pageLeft.classList.contains('turn')) {
+            pageLeft.classList.add('turn');
+            setTimeout(() => {
+                pageLeft.style.zIndex = 20;
+            }, 500);
+        }
+    }, 2100);
+});
+
 const pageTurnBtn = document.querySelectorAll(".nextprev-btn");
 
 pageTurnBtn.forEach((el, index) => {
@@ -70,9 +88,6 @@ function reverseIndex() {
         pageNumber = totalPages - 1;
     }
 }
-
-const coverRight = document.querySelector(".cover.cover-right");
-const pageLeft = document.querySelector(".book-page.page-left");
 
 // Set initial z-index for page-left
 pageLeft.style.zIndex = 20;
