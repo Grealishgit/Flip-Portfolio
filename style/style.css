@@ -553,6 +553,10 @@ body {
     margin-bottom: 1.2rem;
 }
 
+.edu-content a {
+    color: var(--main-color);
+    text-decoration: underline;
+}
 .edu-box .edu-content p {
     font-size: small;
 }
